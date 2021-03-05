@@ -155,9 +155,47 @@
       font-size: 0.8rem;
       padding: 1.0rem;
   }
+
+  pre code.sourceCode {
+      background-color: lightgoldenrodyellow;
+  }
+
+  code {
+      background-color: lightgoldenrodyellow;
+      border-radius: 0.3rem;
+      padding: 0.1rem 0.2rem;
+  }
+
+  figcaption {
+      font-size: 0.9rem;
+      font-style: italic;
+      text-align: center;
+  }
+
+  #before {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid black;
+  }
+
+  #after {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid black;
+  }
   </style>
 </head>
 <body>
+<div id="banner">
+    <img src="media/header.jpg" alt="Course Header">
+</div>
+<div id="before">
+    The Missing Course
+    <div id="before-links">
+        <a href="../.." title="Course Home">Home</a> |
+        <a href="https://github.com/glesica/missing-course" title="Course GitHub Page">GitHub</a>
+    </div>
+</div>
 <h1 id="editors">Editors</h1>
 <p>We won’t spend too much time talking about editors because there are so many of them in existence and they represent such a subjective, personal choice on the part of individual users. However, it is good to be familiar with at least a couple of standard Unix editors since they are essentially ubiquitous and we don’t always have access to our preferred one in all circumstances.</p>
 <h2 id="nano">Nano</h2>
@@ -174,7 +212,87 @@
 <img src="../../media/04-editors-vim.png" alt="Vim in action" /><figcaption aria-hidden="true">Vim in action</figcaption>
 </figure>
 <p>There is a common joke that the only way to exit Vim is to shut off the computer. Can you see why?</p>
+<h3 id="basic-commands">Basic Commands</h3>
+<p>The commands we discussed in lecture are listed below. Remember that you’ll need to be in Normal mode for these to work. If you are in Insert mode, hit the <code>Esc</code> key to get back to Normal mode.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>h</code>, <code>j</code>, <code>k</code>, <code>l</code></td>
+<td>left, down, up, right (respectively)</td>
+</tr>
+<tr class="even">
+<td><code>w</code>, <code>b</code></td>
+<td>right or left by one word</td>
+</tr>
+<tr class="odd">
+<td><code>gg</code>, <code>G</code></td>
+<td>top, bottom of the file</td>
+</tr>
+<tr class="even">
+<td><code>^</code>, <code>$</code></td>
+<td>beginning, end of the line</td>
+</tr>
+<tr class="odd">
+<td><code>:&lt;number&gt;</code></td>
+<td>jump to line by number</td>
+</tr>
+<tr class="even">
+<td><code>/</code></td>
+<td>find in file</td>
+</tr>
+<tr class="odd">
+<td><code>d</code></td>
+<td>delete / cut selection</td>
+</tr>
+<tr class="even">
+<td><code>dd</code></td>
+<td>delete line</td>
+</tr>
+<tr class="odd">
+<td><code>zz</code>, <code>zt</code>, <code>zb</code></td>
+<td>current line to center, top, or bottom</td>
+</tr>
+<tr class="even">
+<td><code>y</code></td>
+<td>yank (copy) selection</td>
+</tr>
+<tr class="odd">
+<td><code>p</code></td>
+<td>paste</td>
+</tr>
+<tr class="even">
+<td><code>v</code></td>
+<td>visual selection mode</td>
+</tr>
+<tr class="odd">
+<td><code>V</code></td>
+<td>visual line selection mode</td>
+</tr>
+<tr class="even">
+<td><code>:w</code></td>
+<td>save file</td>
+</tr>
+<tr class="odd">
+<td><code>:q</code></td>
+<td>quit or close window</td>
+</tr>
+</tbody>
+</table>
 <h2 id="emacs">Emacs</h2>
 <p>A common joke about Emacs is that it is a great operating system that just lacks a text editor. There is some strange truth to this, and if you decide to drink enough of the Kool-Aid you’ll understand why.</p>
+
+<div id="after">
+    <a href="#">Back to top</a>
+    <div id="after-links">
+        <a href="../.." title="Course Home">Home</a> |
+        <a href="https://github.com/glesica/missing-course" title="Course GitHub Page">GitHub</a>
+    </div>
+</div>
 </body>
 </html>

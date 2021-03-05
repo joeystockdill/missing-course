@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>/topics/07-remote-computing [missing course]</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <style>
+  pre code {
+      background-color: lightgoldenrodyellow;
+      border-radius: 1.0rem;
+      display: block;
+      font-size: 0.8rem;
+      padding: 1.0rem;
+  }
+
+  pre code.sourceCode {
+      background-color: lightgoldenrodyellow;
+  }
+
+  code {
+      background-color: lightgoldenrodyellow;
+      border-radius: 0.3rem;
+      padding: 0.1rem 0.2rem;
+  }
+
+  figcaption {
+      font-size: 0.9rem;
+      font-style: italic;
+      text-align: center;
+  }
+
+  #before {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid black;
+  }
+
+  #after {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid black;
+  }
+  </style>
+</head>
+<body>
+<div id="banner">
+    <img src="media/header.jpg" alt="Course Header">
+</div>
+<div id="before">
+    The Missing Course
+    <div id="before-links">
+        <a href="../.." title="Course Home">Home</a> |
+        <a href="https://github.com/glesica/missing-course" title="Course GitHub Page">GitHub</a>
+    </div>
+</div>
+<h1 id="remote-computing">Remote Computing</h1>
+<ul>
+<li><a href="https://missing.csail.mit.edu/2020/command-line/">MIT Page</a> (near the end)</li>
+</ul>
+<p>Often it is desirable to interact with a computer that isn’t sitting on your desk. Sometimes this means a server of some kind, sommetimes a powerful, shared computer used for high performance computations, or even an ordinary workstation to help troubleshoot.</p>
+<p>Historically, this was done using a program called <a href="https://en.wikipedia.org/wiki/Telnet">Telnet</a>. While this protocol is still in use today, largely as a novelty, a similar, more secure protocol is now in use called <a href="https://en.wikipedia.org/wiki/SSH_(Secure_Shell)">Secure Shell</a> or SSH.</p>
+<p>As the name suggests, SSH is often used to establish a shell session on a remote machine. All of the things we have learned previously about using a shell are still valid, the execution just takes place on a different computer.</p>
+<p>SSH is simple to invoke:</p>
+<pre><code>ssh george@lesica.com</code></pre>
+<p>The server to which we would like to connect, along with the username are specified on the command line. In the example above, the username is “george” and the server is “lesica.com”. By default, SSH uses port 22.</p>
+<p>It is also possible to specify a command to be run instead of opening a full shell session. This is handy when you only wish to use the remote computer’s computational resources. Output from the command is delivered back to your local computer.</p>
+<pre><code>ssh george@lesica.com ls # Listing of george&#39;s home directory</code></pre>
+<h2 id="key-based-authentication">Key-based Authentication</h2>
+<p>It is possible to avoid typing one’s password over and over again. We will walk through setting up key-based authentication in class and take a look at the example on the MIT course web page.</p>
+<h2 id="configuration-options">Configuration Options</h2>
+<p>In addition to key-based authentication, we can also set up “nicknames” for the servers we connect to most often. This is done using the file <code>~/.ssh/config</code> (create it if it doesn’t exist already). This file can be used to set per-server options. An example is shown below.</p>
+<pre><code>Host missing
+    HostName missing.cs.umt.edu
+    User gl219598e
+    IdentityFile ~/.ssh/id_rsa_missing</code></pre>
+<p>This is the entry in my config file for the server we will use in class. Note that I’ve nicknamed it “missing”, set the username, and pointed it at a key file. This allows me to connect using a simple command: <code>ssh missing</code>.</p>
+<h2 id="copying-files-scp">Copying Files (scp)</h2>
+<p>It is possible to copy files to any remote SSH host using the <code>scp</code> program. Since SCP (secure copy) uses the same configuration file, it can be made very easy to use.</p>
+<pre><code>scp file.txt missing:/home/gl219598e/</code></pre>
+<p>There is also a <code>-r</code> flag that copies directories recursively, making it easy to copy a number of files. If you have a lot of data, however, it might be better to use <code>tar</code> to compress the files beforehand.</p>
+<pre><code># Use scp directly
+scp -r myfiles missing:/home/gl219598e/
+
+# Using tar
+tar -cxf files.tar.gz myfiles/
+scp files.tar.gz missing:/home/gl219598e/</code></pre>
+<h2 id="tunneling">Tunneling</h2>
+<ul>
+<li><a href="https://robotmoon.com/ssh-tunnels/">SSH tunneling tutorial</a></li>
+</ul>
+<p>It is possible to route your computer’s network traffic through another machine using SSH. This can be helpful if you need to access services running on the remote machine but not exposed to the Internet. It can also allow you to use the remote machine as a kind of “poor man’s” VPN (I used this technique to watch Hulu when I lived in Chile).</p>
+<p>The MIT page has an example and some nice diagrams.</p>
+<h2 id="tmux">Tmux</h2>
+<ul>
+<li><a href="https://danielmiessler.com/study/tmux/">A brief Tmux tutorial</a></li>
+</ul>
+<p>A terminal multiplexer allows multiple shell sessions to be run and, more importantly for us, saved and restored. This capability is useful for running a persistent application on a remote server such that you can return to it later as though you’d only gotten up from the computer rather than logged out of it.</p>
+<p>Tmux and Screen are the most popular terminal multiplexers. Install Tmux using Homebrew or your Linux distro’s package manager.</p>
+<h3 id="leave-a-program-running">Leave a Program Running</h3>
+<p>What if you want to leave a program running on a server? This could be a long-lived computation, or a program that serves requests. We can do this with <code>nohup</code>, which causes a program to effectively ignore the “hangup” signal it receives when we close the SSH session.</p>
+<pre><code>nohup ./longjob.py George</code></pre>
+<p>We can also put this into the background either by appending <code>&amp;</code> to the command or using our job control tools. Once we disconnect, the job remains. Note that stdout and stderr are automatically redirected to a file. This makes sense since we expect to “abandon” the program as it runs, but, presumably, we still want its output.</p>
+<p>Once we log back in, however, we can’t bring the application back to the foreground, it doesn’t even show up in our <code>jobs</code> listing.</p>
+<h3 id="using-tmux">Using Tmux</h3>
+<p>We can accomplish something similar, but more conveniently, using Tmux. First, we start a Tmux session:</p>
+<pre><code>tmux new -s longjob</code></pre>
+<p>We can simply run <code>tmux</code> to get a new, anonymous, session too. Now we can run our program normally:</p>
+<pre><code>./longjob.py George</code></pre>
+<p>We could redirect the output or put the job in the background as well. But once we’re ready to log out we can “detach” from our terminal session with <code>Ctrl-b d</code> or by running <code>tmux detach</code>. Note that the program output stops printing, we’re no longer inside the shell session that has <code>longjob.py</code> running, so we don’t get its output.</p>
+<p>Now we can disconnect from the server and come back later. If we run <code>tmux ls</code> we’ll see the <code>longjob</code> session listed. We can “attach” to it:</p>
+<pre><code>tmux attach -t longjob</code></pre>
+<p>We could also use <code>tmux attach</code> or <code>tmux a</code> since there is only one session. Now the old session is restored, and we can even see all the output that has occurred since we left!</p>
+
+<div id="after">
+    <a href="#">Back to top</a>
+    <div id="after-links">
+        <a href="../.." title="Course Home">Home</a> |
+        <a href="https://github.com/glesica/missing-course" title="Course GitHub Page">GitHub</a>
+    </div>
+</div>
+</body>
+</html>

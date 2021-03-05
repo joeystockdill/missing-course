@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>/topics/05-data-wrangling [missing course]</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <style>
+  pre code {
+      background-color: lightgoldenrodyellow;
+      border-radius: 1.0rem;
+      display: block;
+      font-size: 0.8rem;
+      padding: 1.0rem;
+  }
+
+  pre code.sourceCode {
+      background-color: lightgoldenrodyellow;
+  }
+
+  code {
+      background-color: lightgoldenrodyellow;
+      border-radius: 0.3rem;
+      padding: 0.1rem 0.2rem;
+  }
+
+  figcaption {
+      font-size: 0.9rem;
+      font-style: italic;
+      text-align: center;
+  }
+
+  #before {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid black;
+  }
+
+  #after {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid black;
+  }
+  </style>
+</head>
+<body>
+<div id="banner">
+    <img src="media/header.jpg" alt="Course Header">
+</div>
+<div id="before">
+    The Missing Course
+    <div id="before-links">
+        <a href="../.." title="Course Home">Home</a> |
+        <a href="https://github.com/glesica/missing-course" title="Course GitHub Page">GitHub</a>
+    </div>
+</div>
+<h1 id="data-wrangling">Data Wrangling</h1>
+<ul>
+<li><a href="https://missing.csail.mit.edu/2020/data-wrangling/">MIT Page</a></li>
+</ul>
+<h2 id="regular-expressions">Regular Expressions</h2>
+<p>Regular Expressions let us create patterns that we can match against text. The simplest possible pattern is just an exact string match. For example, the pattern <code>hello</code> is found within the string “hello world” at position 0.</p>
+<p>More complicated patterns can express more interesting matches. For example, the pattern <code>[Hh]ello</code> will match “hello world” as well as “Hello world”. We can also limit matches to the beginning or end of a line, this is sometimes called “anchoring” the regular expression. The pattern <code>^hello</code> will match “hello world” but not “say hello” because <code>^</code> indicates the beginning of the line.</p>
+<h2 id="sed">Sed</h2>
+<ul>
+<li><a href="https://www.grymoire.com/Unix/Sed.html">Tutorial</a> - unofficial but good</li>
+</ul>
+<p>The command everyone uses Sed for is <code>s</code> for substitution. Let’s look at an example. We’ll give ourselves a data file and then use Sed to slice and dice it in different ways. We’ll put that in a text file called, shockingly, <code>messages.txt</code>.</p>
+<pre><code>2021-01-03 This is a message
+2021-01-04 Also a message
+2021-01-05 Another day, another message
+2021-01-06 Something something message</code></pre>
+<p>What if we wanted to trim the date off the beginning of each line?</p>
+<pre><code>cat messages.txt | sed -r &#39;s/^[0-9]{4}-[0-9]{2}-[0-9]{2} //&#39;</code></pre>
+<p>Breaking this down, we pipe the contents of the file into Sed. Sed is invoked with the <code>-r</code> flag so that we can use regular expressions. Finally, we have a Sed command that looks for a certain pattern and replaces it with nothing (<code>//</code>), which is the same as removing it.</p>
+<p>What if we wanted to transform this file to CSV format and make the year, month, and day separate columns? That’s a little trickier, but really not so difficult (although we should keep in mind that if our messages have a lot of special characters the resulting CSV might be invalid).</p>
+<pre><code>cat messages.txt | sed -E &#39;s/^([0-9]{4})-([0-9]{2})-([0-9]{2}) (.+)$/\1,\2,\3,\4/&#39;</code></pre>
+<p>Wow, that’s a big one. First, we capture four patterns (the parentheses), excluding the dashes and the space before the message. Then we copy what we captured, but this time we put commas between the pieces.</p>
+<p>Keep in mind that, by default, Sed only operates on the first instance of a pattern within a line. So the example below will print “goodbye hello”.</p>
+<pre><code>echo &quot;hello hello&quot; | sed &#39;s/hello/goodbye/&#39;</code></pre>
+<p>If we want to replace all occurrences of a pattern we need to use the <code>g</code> (for “global”) flag:</p>
+<pre><code>echo &quot;hello hello&quot; | sed &#39;s/hello/goodbye/g&#39;</code></pre>
+<p>We can also use the <code>-e</code> command line flag to run multiple Sed commands, one after the other. For example, what if we weren’t sure whether the messages in the earlier file themselves contained a comma (one of them does, in fact). This would obviously mess up the formatting of our CSV file. For example, the line</p>
+<pre><code>2021-01-03 this, is a message</code></pre>
+<p>would produce</p>
+<pre><code>2021,01,03,this, is a message</code></pre>
+<p>which a spreadsheet program might interpret as five columns instead of the four we intended.</p>
+<p>We could deal with this by first replacing commas with <code>\,</code> (to escape them) or even with nothing to remove them.</p>
+<pre><code>cat messages.txt | sed -E -e &#39;s/,//g&#39; -e &#39;s/^([0-9]{4})-([0-9]{2})-([0-9]{2}) (.+)$/\1,\2,\3,\4/&#39;</code></pre>
+<p>In this case, we can provide one Sed command for each <code>-e</code> and they will be run in the order they are specified. Note that we could also use another pipe and run Sed again to get the same behavior, though with a little more typing.</p>
+<h3 id="insert-and-append">Insert and append</h3>
+<p>Read up on the “insert” and “append” commands. These allow lines to be added above or below lines that match a particular pattern in a file.</p>
+<h2 id="awk">Awk</h2>
+<ul>
+<li><a href="https://www.grymoire.com/Unix/Awk.html">Tutorial</a></li>
+</ul>
+<p>Awk is one of those programs that only a few people know how to use properly and every time the rest of us witness what it can do we vow to learn how to use it. There’s a lot to learn about Awk, however, so it can be daunting. We’ll go over some basics, and if you find yourself inspired to be one of those wizards who really knows how to use it, you’ll be in good shape to continue learning.</p>
+<p>First, let’s make a CSV file from the output of <code>ls -l</code>:</p>
+<pre><code>ls -l ../../../ | awk &#39;/^[-d]/ {print $6&quot;,&quot;$7&quot;,&quot;$3&quot;,&quot;$9}&#39;</code></pre>
+<p>Awk has the concept of a “field separator”, which it uses to break lines into pieces automatically. This is handy since a lot of Unix-style program output ends up formatted at least somewhat like a table. The numerical variables above (<code>$6</code> and so on) refer to fields within a single row (line) of the implied table.</p>
+<p>The regular expression before the opening curly brace (<code>/^[-d]/</code>) just tells Awk to only run on lines that start with either a “-” character or a “d” character. This is so that we skip the initial line of output (“total 64” in my case).</p>
+<h2 id="json-jq">JSON (jq)</h2>
+<ul>
+<li><a href="https://stedolan.github.io/jq/">jq web site</a></li>
+</ul>
+<p>JSON, or JavaScript Object Notation, is a data serialization format commonly used to communicate with web services. It is reasonably simple for both machines and humans to read and write, which makes it a nice compromise compared to more verbose formats like XML or more efficient ones like MessagePack.</p>
+<p>Most common programming languages have some level of support for JSON. Python includes a JSON package in its standard library. The jq tool allows us to query and manipulate JSON data from the command line.</p>
+<p>Take a look at <a href="reddit.sh">reddit.sh</a> for an example. We’ll go into more detail during class.</p>
+<h2 id="csv-csvkit">CSV (csvkit)</h2>
+<p>Comma-separated values files are very common in data analysis. Think of them as very simple Excel spreadsheets that just hold data and don’t do any processing or calculations. This simplicity is one reason for the popularity of the format, since CSV files can be read easily on virtually any platform.</p>
+<h3 id="project">Project</h3>
+<p>In order to make this more interesting, we will play around with some real CSV files. The first contains <a href="https://www.kaggle.com/harlfoxem/housesalesprediction">house sale data</a> from King County, WA (which includes Seattle). This spreadsheet contains sale price, zip code, and some characteristics of each house sold during a particular time period. The second contains various <a href="https://www.kaggle.com/irs/individual-income-tax-statistics">tax statistics</a> and happens to also contain zip codes, which we will use later.</p>
+<h3 id="csvkit">csvkit</h3>
+<ul>
+<li><a href="https://github.com/wireservice/csvkit">GitHub Page</a></li>
+</ul>
+<p>CSVKit actually consists of several command line utilities, each with a specific purpose and its own set command line flags.</p>
+<p>The <code>csvstat</code> tool gives us summary statistics (average, and so on) for each column in the spreadsheet. This can be a handy place to start when working with unfamiliar data. It can also hint at errors in the data. Two examples are shown below.</p>
+<pre><code>csvstat kc_house_data.csv
+
+...
+
+  2. &quot;date&quot;
+
+        Type of data:          DateTime
+        Contains null values:  False
+        Unique values:         372
+        Smallest value:        2014-05-02 00:00:00
+        Largest value:         2015-05-27 00:00:00
+        Most common values:    2014-06-23 00:00:00 (142x)
+                               2014-06-26 00:00:00 (131x)
+                               2014-06-25 00:00:00 (131x)
+                               2014-07-08 00:00:00 (127x)
+                               2015-04-27 00:00:00 (126x)
+
+  3. &quot;price&quot;
+
+        Type of data:          Number
+        Contains null values:  False
+        Unique values:         4028
+        Smallest value:        75,000
+        Largest value:         7,700,000
+        Sum:                   11,672,925,008
+        Mean:                  540,088.142
+        Median:                450,000
+        StDev:                 367,127.196
+        Most common values:    450,000 (172x)
+                               350,000 (172x)
+                               550,000 (159x)
+                               500,000 (152x)
+                               425,000 (150x)
+
+...</code></pre>
+<p>The <code>csvcut</code> tool can extract and filter columns from a file. The first thing we’ll do is run <code>csvcut -n</code> on one of our files to display the column headers (names).</p>
+<pre><code>csvcut -n kc_house_data.csv
+  1: id
+  2: date
+  3: price
+  4: bedrooms
+  5: bathrooms
+  6: sqft_living
+  7: sqft_lot
+  8: floors
+  9: waterfront
+ 10: view
+ 11: condition
+ 12: grade
+ 13: sqft_above
+ 14: sqft_basement
+ 15: yr_built
+ 16: yr_renovated
+ 17: zipcode
+ 18: lat
+ 19: long
+ 20: sqft_living15
+ 21: sqft_lot15</code></pre>
+<p>Now we can choose the columns we want to use and pull them into a separate file to make things easier to work with. Check out <a href="simple_csv.sh">simple_csv.sh</a> to see how this is done.</p>
+<p>Now let’s turn our attention to the tax data. The column names here are hard to interpret, so I’m gone ahead and picked out a couple for us to use. When we transform the CSV file we will also rename these columns.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Old Name</th>
+<th>New Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>a02650</td>
+<td>total_income</td>
+</tr>
+<tr class="even">
+<td>n02650</td>
+<td>total_income_count</td>
+</tr>
+<tr class="odd">
+<td>numdep</td>
+<td>dependent_count</td>
+</tr>
+<tr class="even">
+<td>zipcode</td>
+<td>zipcode</td>
+</tr>
+</tbody>
+</table>
+<p>Unfortunately, CSVKit doesn’t have a fancy command to rename columns, but we can easily use a tool we already learned about: Sed! Check out the script to see one way of doing this.</p>
+<p>Finally, we’re going to join these two datasets together. Why is this useful? Well, imagine we have a theory that, say, more expensive homes in certain markets tend to be owned by people who earn money through passive investments as opposed to participation in the labor market. This is a bit of a hot button issue right now as people in many desirable real estate markets have begun to feel “priced out”. Providing evidence for a theory like this will almost always require data from more than one source, so being able to stitch CSV files together can be quite valuable.</p>
+<p>To do this, we use the <code>csvjoin</code> tool. We can specify the column to join on using the <code>-c</code> option, giving it either a single column name (<code>zipcode</code>) or a comma-delimited list of two names if the files use different names (<code>zipcode,zip_code</code>, for example).</p>
+<h2 id="producer-consumer-pattern">Producer / Consumer Pattern</h2>
+<p>We’ve used a lot of pipes (<code>|</code>) so far, but aside from the fact that they work by sending the output of one command into the next command as its input, we don’t know much about them. So let’s think about a particular software development pattern and use it to experiment a little with how pipes actually work.</p>
+<p>It is very common to have a program that produces data, perhaps directly or perhaps in response to some kind of user or external (like a sensor) input. This sort of program is known as a “producer”. It is also common to have a program that accepts data and processes it in some way. If we plug a producer into a program like this then we call it a “consumer” because it consumes the data produced by the producer. Producers and consumers can be independent programs or they can be logical parts of a single program, like functions or classes.</p>
+<p>We’ll use the <a href="produce.py">produce.py</a> and <a href="consume.py">consume.py</a> scripts and run them as a pipeline as an example. This will also give us a chance to see how pipes work.</p>
+
+<div id="after">
+    <a href="#">Back to top</a>
+    <div id="after-links">
+        <a href="../.." title="Course Home">Home</a> |
+        <a href="https://github.com/glesica/missing-course" title="Course GitHub Page">GitHub</a>
+    </div>
+</div>
+</body>
+</html>
